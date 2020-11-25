@@ -16,10 +16,22 @@ export const RegisterPage: FC = () => {
       onFinish={onFinish}
     >
       <Form.Item
-        name="username"
+        name="name"
         rules={[{ required: true, message: 'Please input your Username!' }]}
       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+        <Input
+          prefix={<UserOutlined className="site-form-item-icon" />}
+          placeholder="Username"
+        />
+      </Form.Item>
+      <Form.Item
+        name="email"
+        rules={[{ required: true, message: 'Please input your Email!' }]}
+      >
+        <Input
+          prefix={<UserOutlined className="site-form-item-icon" />}
+          placeholder="Username"
+        />
       </Form.Item>
       <Form.Item
         name="password"
@@ -31,22 +43,12 @@ export const RegisterPage: FC = () => {
           placeholder="Password"
         />
       </Form.Item>
-      <Form.Item>
-        <Form.Item name="remember" valuePropName="checked" noStyle>
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
-
-        <a className="login-form-forgot" href="">
-          Forgot password
-        </a>
-      </Form.Item>
 
       <Form.Item>
         <Button type="primary" htmlType="submit" className="login-form-button">
-          Log in
+          Register
         </Button>
-        Or <a href="">register now!</a>
       </Form.Item>
     </Form>
   );
-}
+};

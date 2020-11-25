@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 
 import { Form, Input, Button } from 'antd';
 import { Link, Redirect } from 'react-router-dom';
@@ -14,7 +14,7 @@ const tailLayout = {
 
 export const LoginPage: FC = () => {
   // TODO: add login, auth hooks
-  const { data, post, loading, error } = useFetch('/login');
+  const { data, post, loading } = useFetch('/login');
 
   const onFinish = (values: any) => {
     post(values);

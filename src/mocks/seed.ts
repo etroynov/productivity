@@ -34,7 +34,7 @@ const users = () => {
   const users = [];
   const time_tracks = {} as any;
 
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 10500; i++) {
     const user = {
       id: faker.random.uuid(),
       name: faker.name.findName(),
