@@ -13,14 +13,14 @@ const tailLayout = {
 };
 
 export const LoginPage: FC = () => {
-  const { data, post, loading, error} = useFetch('/login');
+  const { data, post, loading, error } = useFetch('/login');
 
   const onFinish = (values: any) => {
-    post(values)
+    post(values);
   };
 
-  if(data) {
-    return <Redirect to="/" />
+  if (data) {
+    return <Redirect to="/" />;
   }
 
   return (
