@@ -4,11 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { usersActions } from '../actions';
 
-import { AppState, State, User } from '../typings';
-
-export function useUsers(): [User[], boolean, unknown] {
+// unfortunate i am not familiar with immutable.js types
+export function useUsers(): [any, boolean, unknown] {
   const dispatch = useDispatch();
-  const users = useSelector<AppState>(state => state.users) as State<User>;
+  const users = useSelector((state: any) => state.get('users'));
 
   const { get, data, error } = useFetch('/users');
 
@@ -23,5 +22,5 @@ export function useUsers(): [User[], boolean, unknown] {
     }
   }, [dispatch, data]);
 
-  return [users.data, users.loading, error];
+  return [users.get('data'), users.loading, error];
 }

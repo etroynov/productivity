@@ -24,7 +24,6 @@ if (process.env.NODE_ENV === 'development') {
   });
 }
 
-
 const store = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(

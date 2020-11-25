@@ -1,4 +1,9 @@
 import { createAction } from 'redux-act';
 
-export const requestLogin = createAction('REQUEST_LOGIN');
-export const receivetLogin = createAction('RECEIVE_LOGIN');
+const requestLogin: any = createAction('REQUEST_LOGIN');
+const receiveLogin: any = createAction('RECEIVE_LOGIN');
+
+export const authActions = {
+  requestLogin,
+  receiveLogin,
+}

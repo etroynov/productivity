@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
 import { Form, Input, Button } from 'antd';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
 
-import { useFetch } from 'use-http';
+import { useAuth } from '../../hooks';
 
 import { StyledDiv, StyledContainer, StyledWrapper } from './styles';
 
@@ -13,20 +13,11 @@ const tailLayout = {
 };
 
 export const LoginPage: FC = () => {
-  // TODO: add login, auth hooks
-  const { data, post, loading } = useFetch('/login');
-
-  const onFinish = (values: any) => {
-    post(values);
-  };
-
-  if (data) {
-    return <Redirect to="/" />;
-  }
+  const { handlers, loading } = useAuth();
 
   return (
     <StyledWrapper>
-      <Form name="login" onFinish={onFinish}>
+      <Form name="login" onFinish={(values) => handlers.login(values)}>
         <Form.Item
           name="email"
           rules={[{ required: true, message: 'Please input your Username!' }]}

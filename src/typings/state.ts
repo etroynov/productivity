@@ -1,5 +1,7 @@
+import { Record } from 'immutable';
 import { State, User } from '.';
 
 export type AppState = {
-  users: State<User>,
+  auth: Record<State<User>>;
+  users: Record<State<User[]>>;
 }

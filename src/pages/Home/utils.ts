@@ -4,7 +4,6 @@ export const getTotalTime = (items: any = []): [string, string, string] => {
   const { totalClockedInTime, totalProductiveTime, totalUnproductiveTime } = Array.isArray(items) && items.reduce(
     (acc: any, curr: any) => {
       const { totalProductiveTime, totalUnproductiveTime } = curr;
-      console.info(curr);
 
       acc.totalProductiveTime += totalProductiveTime;
       acc.totalUnproductiveTime += totalUnproductiveTime;

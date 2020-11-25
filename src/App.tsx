@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import { Redirect } from 'react-router-dom';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,10 +12,37 @@ import {
   HomePage,
   UsersPage,
   LoginPage,
+  RegisterPage,
   NotFound,
 } from './pages';
 
+import { useAuth } from './hooks';
+
 export const App: FC = () => {
+  const { user } = useAuth();
+
+  console.info(user.get('data'));
+
+  if (!user.get('data')) {
+    return (
+      <Router>
+        <Switch>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+
+          <Route path="/register">
+            <RegisterPage />
+          </Route>
+
+          <Route path="*">
+            <Redirect to="/login" />
+          </Route>
+        </Switch>
+      </Router>
+    );
+  }
+
   return (
     <Router>
       <Switch>
@@ -23,14 +52,6 @@ export const App: FC = () => {
 
         <Route path="/users">
           <UsersPage />
-        </Route>
-
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-
-        <Route path="/register">
-          <LoginPage />
         </Route>
 
         <Route path="*">
