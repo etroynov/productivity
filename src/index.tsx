@@ -1,13 +1,38 @@
-import React from 'react';
+import 'antd/dist/antd.css';
+
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { StrictMode } from 'react';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+import { App } from './App';
+
+import { rootReducer } from './reducers';
+
+// Dev
+
+import { mocks } from './mocks';
 import reportWebVitals from './reportWebVitals';
 
+import './index.css';
+
+// Start the mocking conditionally.
+if (process.env.NODE_ENV === 'development') {
+  mocks.init(() => {
+    mocks.server.start();
+  });
+}
+
+
+const store = createStore(rootReducer, composeWithDevTools());
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </StrictMode>,
   document.getElementById('root')
 );
 
