@@ -8,7 +8,7 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
     "@types/redux-immutable": "^4.0.1",
-    "antd": "^4.8.4",
+    "antd": "^4.8.5",
     "date-fns": "^2.16.1",
     "immutable": "^4.0.0-rc.12",
     "react": "^17.0.1",
@@ -16,12 +16,12 @@
     "react-highlight-words": "^0.16.0",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.0-next.98",
+    "react-scripts": "4.0.1",
     "redux": "^4.0.5",
     "redux-act": "^1.8.0",
     "redux-immutable": "^4.0.0",
     "styled-components": "^5.2.1",
-    "use-http": "^1.0.15",
+    "use-http": "^1.0.16",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
